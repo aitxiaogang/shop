@@ -55,4 +55,9 @@ public class Employee {
 	public void setAge(Integer age) {
 		this.age = age;
 	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", passwd=" + passwd + ", age=" + age + "]";
+	}
 }

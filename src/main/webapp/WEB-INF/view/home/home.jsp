@@ -66,7 +66,7 @@
 								<td height="24"><a class="hei" href="#">库存预警</a></td>
 							</tr>
 							<tr>
-								<td height="50" valign="bottom"><a class="hei" href="#">员工</a></td>
+								<td height="50" valign="bottom"><a class="hei" href="/usr/list" target="main">员工</a></td>
 							</tr>
 							<tr>
 								<td height="23"><a class="hei" href="#">供应商</a></td>
