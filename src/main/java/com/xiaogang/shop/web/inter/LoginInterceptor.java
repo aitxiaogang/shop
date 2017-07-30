@@ -12,7 +12,7 @@ public class LoginInterceptor implements HandlerInterceptor{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		System.out.println("LoginInterceptor.preHandle()");
-		return false;
+		return true;
 	}
 
 	@Override

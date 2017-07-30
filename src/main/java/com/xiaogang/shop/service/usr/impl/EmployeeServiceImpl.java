@@ -3,22 +3,25 @@ package com.xiaogang.shop.service.usr.impl;
 import java.io.Serializable;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.xiaogang.shop.dao.EmployeeRepository;
 import com.xiaogang.shop.domain.Employee;
+import com.xiaogang.shop.log.LoggerAble;
 import com.xiaogang.shop.service.usr.IEmployeeService;
 
 @Service
-public class EmployeeServiceImpl implements IEmployeeService{
+public class EmployeeServiceImpl extends LoggerAble implements IEmployeeService{
 
 	@Autowired
 	private EmployeeRepository employeeRepository;
-	
+
 	@Override
 	public Employee add(Employee t) {
-		Employee employee = employeeRepository.save(t);
-		return employee;
+		logger.info("add {}",t);
+		return employeeRepository.save(t);
 	}
 
 	@Override
@@ -28,8 +31,13 @@ public class EmployeeServiceImpl implements IEmployeeService{
 
 	@Override
 	public Employee get(Serializable id) {
-		Employee employee = employeeRepository.findOne(Long.valueOf(id+""));
-		return employee;
+		
+		return employeeRepository.getOne((Long) id);
 	}
 
+	@Override
+	public Page<Employee> queryPage(Pageable pageable) {
+		Page<Employee> findAll = employeeRepository.findAll(pageable);
+		return findAll;
+	}
 }
